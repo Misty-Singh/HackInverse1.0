@@ -3,6 +3,58 @@
 Placement-prep platform for GNIT: AI mock interviews (Hinglish-friendly), teacher-set quizzes,
 study materials, and per-student progress tracking, with role-based access for **students, teachers and admins**.
 
+---
+
+## 🌐 Live Demo & Video Walkthrough
+
+- **Live Application:** [https://campusprep-ai.onrender.com](https://campusprep-ai.onrender.com)
+- **YouTube Demo Video:** [https://youtu.be/9ezp2klkZBI?si=ATCEgxQn9q-RprLU]
+
+---
+
+## 📁 File & Project Structure
+
+```text
+campusprep-fullstack/
+├── public/                 # Frontend (HTML, CSS, JS single-page application)
+├── server/                 # Backend Node.js / Express application
+│   ├── data/               # Persistent data storage
+│   │   ├── uploads/        # Uploaded study materials and resources
+│   │   ├── .jwt_secret     # Auto-generated JWT secret backup
+│   │   └── db.json         # JSON database store
+│   ├── routes/             # API Express routes (auth, materials, progress, quizzes)
+│   ├── auth.js             # Authentication middleware & password verification
+│   ├── db.js               # Database helper functions
+│   ├── seed.js             # Database seeder for demo accounts & sample data
+│   └── server.js           # Server entry point & API routes setup
+├── .env                    # Local environment variables configuration
+├── .env.example            # Environment variables template
+├── .gitignore              # Files ignored by Git
+├── package.json            # Node.js dependencies & scripts
+└── README.md               # Project documentation
+
+
+
+
+
+## System Architecture Flow Diagram
+[ Client (Browser) ]
+   │
+   ├──▶ Web Speech API (Speech-to-Text & Audio Capture)
+   │
+   ├──▶ HTTP / REST API Requests (JWT Authenticated)
+   │         │
+   │         ▼
+   │  [ Express.js Server ]
+   │         │
+   │         ├──▶ Auth & Middleware (RBAC: Student / Teacher / Admin Verification)
+   │         │
+   │         ├──▶ Anthropic API (Claude Model - Evaluation & Feedback)
+   │         │
+   │         └──▶ Local Database Engine (server/data/db.json)
+
+
+
 ## Run it
 
 ```bash
